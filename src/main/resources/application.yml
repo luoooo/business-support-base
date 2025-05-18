@@ -1,0 +1,43 @@
+spring:
+  application:
+    name: business-support-core
+  datasource:
+    primary:
+      url: jdbc:mysql://localhost:3306/primary_db
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+    secondary:
+      url: jdbc:mysql://localhost:3306/secondary_db
+      username: root
+      password: root
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  redis:
+    host: localhost
+    port: 6379
+    database: 0
+  rabbitmq:
+    host: localhost
+    port: 5672
+    username: guest
+    password: guest
+
+business-support:
+  enabled-modules:
+    global-exception: true
+    annotation-log: true
+    trace-id: true
+    redis-lock: true
+    multi-datasource: true
+    mq-support: true
+  global-exception:
+    enable: true
+    format: json
+  trace-id:
+    enable: true
+    header-name: X-Trace-ID
+
+logging:
+  level:
+    root: INFO
+    com.company.business.support: DEBUG 
